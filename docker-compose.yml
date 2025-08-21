@@ -1,0 +1,27 @@
+services:
+  gemini-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add a reverse proxy for HTTPS
+  # nginx-proxy:
+  #   image: nginx:alpine
+  #   ports:
+  #     - "443:443"
+  #   volumes:
+  #     - ./ssl:/etc/nginx/ssl
+  #     - ./proxy.conf:/etc/nginx/nginx.conf
+  #   depends_on:
+  #     - gemini-app

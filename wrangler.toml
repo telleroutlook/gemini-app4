@@ -1,0 +1,11 @@
+name = "gemini-app4"
+compatibility_date = "2025-08-21"
+
+[build]
+command = "npm run build"
+
+[assets]
+directory = "dist"
+
+[env.production.vars]
+NODE_ENV = "production"

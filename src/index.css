@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mathematical expressions overflow control */
+@layer base {
+  /* KaTeX math formulas responsive handling */
+  .katex-display {
+    overflow-x: auto;
+    max-width: 100%;
+    margin: 1rem 0;
+  }
+  
+  .katex {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* Math block containers */
+  .math-block {
+    overflow-x: auto;
+    max-width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .math-inline {
+    max-width: 100%;
+    display: inline-block;
+    overflow-x: auto;
+  }
+
+  /* Enhanced Mermaid diagram responsiveness - learned from HTML export */
+  .mermaid-diagram {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .mermaid-diagram svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .mermaid-diagram-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: visible;
+  }
+  
+  /* Ensure Mermaid diagrams are responsive across all types */
+  .mermaid-diagram .node,
+  .mermaid-diagram .cluster,
+  .mermaid-diagram .edgePath {
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+/* Mobile-specific optimizations */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+  }
+  
+  /* Prevent zoom on input focus on iOS */
+  input, textarea, select {
+    font-size: 16px;
+  }
+  
+  /* Improve touch targets */
+  button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Smooth scrolling */
+  * {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+}
+
+@layer components {
+  /* Mobile-friendly focus styles */
+  .focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+  
+  /* Touch-friendly button states */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* Prevent text selection on interactive elements */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Mobile-optimized transitions */
+  .mobile-transition {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+  /* Safe area utilities for notched devices */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  /* Mobile-specific spacing */
+  .mobile-p {
+    @apply p-3 sm:p-4;
+  }
+  
+  .mobile-px {
+    @apply px-3 sm:px-4;
+  }
+  
+  .mobile-py {
+    @apply py-2 sm:py-3;
+  }
+  
+  /* Mobile text sizes */
+  .mobile-text {
+    @apply text-sm sm:text-base;
+  }
+  
+  .mobile-text-sm {
+    @apply text-xs sm:text-sm;
+  }
+}

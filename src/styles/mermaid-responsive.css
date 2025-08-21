@@ -1,0 +1,207 @@
+/* Mermaid自适应样式 - 基于Context7最佳实践 */
+
+/* 全局Mermaid容器自适应 */
+.mermaid-diagram {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+}
+
+/* SVG元素自适应 */
+.mermaid-diagram svg {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  /* 保持宽高比 */
+  aspect-ratio: auto;
+}
+
+/* 响应式字体大小 */
+@media (max-width: 640px) {
+  .mermaid-diagram {
+    font-size: 12px !important;
+  }
+  
+  .mermaid-diagram .node text,
+  .mermaid-diagram .actor text,
+  .mermaid-diagram .messageText {
+    font-size: 12px !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .mermaid-diagram {
+    font-size: 14px !important;
+  }
+  
+  .mermaid-diagram .node text,
+  .mermaid-diagram .actor text,
+  .mermaid-diagram .messageText {
+    font-size: 14px !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .mermaid-diagram {
+    font-size: 16px !important;
+  }
+  
+  .mermaid-diagram .node text,
+  .mermaid-diagram .actor text,
+  .mermaid-diagram .messageText {
+    font-size: 16px !important;
+  }
+}
+
+/* 流程图节点自适应 */
+.mermaid-diagram .node rect,
+.mermaid-diagram .node circle,
+.mermaid-diagram .node polygon {
+  /* 确保边框在所有缩放级别下都可见 */
+  stroke-width: 2px !important;
+}
+
+/* 序列图自适应 */
+.mermaid-diagram .actor {
+  /* 演员框自适应宽度 */
+  min-width: 80px !important;
+}
+
+.mermaid-diagram .activation0,
+.mermaid-diagram .activation1,
+.mermaid-diagram .activation2 {
+  /* 激活条自适应 */
+  stroke-width: 2px !important;
+}
+
+/* 甘特图自适应 */
+.mermaid-diagram .grid .tick text {
+  font-size: 12px !important;
+}
+
+.mermaid-diagram .grid .tick line {
+  stroke-width: 1px !important;
+}
+
+/* 状态图自适应 */
+.mermaid-diagram .statediagram-state {
+  font-size: 14px !important;
+}
+
+/* 类图自适应 */
+.mermaid-diagram .classGroup rect {
+  stroke-width: 2px !important;
+}
+
+.mermaid-diagram .classGroup text {
+  font-size: 14px !important;
+}
+
+/* ER图自适应 */
+.mermaid-diagram .er.entityBox {
+  stroke-width: 2px !important;
+}
+
+.mermaid-diagram .er.attributeBoxEven,
+.mermaid-diagram .er.attributeBoxOdd {
+  stroke-width: 1px !important;
+}
+
+/* 用户旅程图自适应 */
+.mermaid-diagram .journey-section text {
+  font-size: 14px !important;
+}
+
+/* Git图自适应 */
+.mermaid-diagram .commit-id,
+.mermaid-diagram .commit-msg,
+.mermaid-diagram .branch-label {
+  font-size: 12px !important;
+}
+
+/* 饼图自适应 */
+.mermaid-diagram .pieCircle {
+  stroke-width: 2px !important;
+}
+
+.mermaid-diagram .pieOuterCircle {
+  stroke-width: 2px !important;
+}
+
+/* 确保在深色模式下的可读性 */
+@media (prefers-color-scheme: dark) {
+  .mermaid-diagram {
+    filter: invert(0) !important;
+  }
+  
+  .mermaid-diagram .node rect,
+  .mermaid-diagram .node circle,
+  .mermaid-diagram .node polygon {
+    fill: #2d3748 !important;
+    stroke: #e2e8f0 !important;
+  }
+  
+  .mermaid-diagram .node text {
+    fill: #e2e8f0 !important;
+  }
+  
+  .mermaid-diagram .edgePath path {
+    stroke: #e2e8f0 !important;
+  }
+  
+  .mermaid-diagram .edgeLabel {
+    background-color: #2d3748 !important;
+    color: #e2e8f0 !important;
+  }
+}
+
+/* 高DPI屏幕优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .mermaid-diagram svg {
+    /* 高DPI屏幕下的清晰度优化 */
+    shape-rendering: geometricPrecision !important;
+    text-rendering: optimizeLegibility !important;
+  }
+}
+
+/* 无障碍访问增强 */
+.mermaid-diagram svg {
+  /* 确保屏幕阅读器可以访问 */
+  role: img;
+}
+
+.mermaid-diagram svg text {
+  /* 提高文本对比度 */
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+/* 打印样式优化 */
+@media print {
+  .mermaid-diagram {
+    /* 打印时使用固定尺寸 */
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+    /* 确保在打印时清晰 */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .mermaid-diagram svg {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* 容器缩放时的平滑过渡 */
+.mermaid-diagram {
+  transition: all 0.3s ease-in-out;
+}
+
+/* 确保在所有浏览器中的兼容性 */
+.mermaid-diagram svg {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
